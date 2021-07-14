@@ -14,9 +14,15 @@ class CreateFeelingsTable extends Migration
     public function up()
     {
         Schema::create('feelings', function (Blueprint $table) {
-            $table->id();
+            $table->string('f_name')->unique();
+            $table->timestamps();
+        });
+
+        Schema::create('feeling_user', function (Blueprint $table) {
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id_user')->on('users')->onDelete('restrict');
             $table->string('f_name');
-            $table->string('f_nature');
+            $table->foreign('f_name')->references('f_name')->on('feelings')->onDelete('restrict');
             $table->timestamps();
         });
     }
@@ -28,6 +34,9 @@ class CreateFeelingsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('feeling_user');
         Schema::dropIfExists('feelings');
+        Schema::enableForeignKeyConstraints();
     }
 }
