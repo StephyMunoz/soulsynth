@@ -7,8 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Feeling extends Model
 {
-    protected $fillable = [
+    protected $hidden = [
         'f_name',
-        'f_nature',
     ];
+
+    public function playlists()
+    {
+        return $this->hasMany('App\Models\Playlist');
+    }
+
+    public function songs()
+    {
+        return $this->hasMany('App\Models\Song');
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User');
+    }
 }

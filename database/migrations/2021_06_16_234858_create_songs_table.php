@@ -14,7 +14,7 @@ class CreateSongsTable extends Migration
     public function up()
     {
         Schema::create('songs', function (Blueprint $table) {
-            $table->id();
+            $table->unsignedBigInteger('s_id');
             $table->string('s_name');
             $table->string('s_artist');
             $table->string('s_producer');
@@ -23,6 +23,8 @@ class CreateSongsTable extends Migration
             $table->string('s_album');
             $table->time('s_duration');
             $table->timestamps();
+            $table->string('f_name');
+            $table->foreign('f_name')->references('f_name')->on('feelings')->onDelete('restrict');
         });
     }
 
