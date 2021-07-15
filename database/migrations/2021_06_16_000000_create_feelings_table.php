@@ -19,8 +19,8 @@ class CreateFeelingsTable extends Migration
         });
 
         Schema::create('feeling_user', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_user');
-            $table->foreign('id_user')->references('id_user')->on('users')->onDelete('restrict');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
             $table->string('f_name');
             $table->foreign('f_name')->references('f_name')->on('feelings')->onDelete('restrict');
             $table->timestamps();
