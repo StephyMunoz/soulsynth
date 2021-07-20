@@ -14,6 +14,7 @@ class CreateFeelingsTable extends Migration
     public function up()
     {
         Schema::create('feelings', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('f_name')->unique();
             $table->timestamps();
         });

@@ -14,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('spotify', 'App\Http\Controllers\SongController@spotify');
-Route::get('/authorize', [SongController::class, 'authorize']);
+Route::get('/spotify', [SongController::class, 'spotify']);
+Route::get('/spotify/{feeling}', [SongController::class, 'feeling']);
+//Route::get('/authorize', [SongController::class, 'authorize']);
