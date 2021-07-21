@@ -15,15 +15,15 @@ class CreateFeelingsTable extends Migration
     {
         Schema::create('feelings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('f_name')->unique();
+            $table->string('name')->unique();
             $table->timestamps();
         });
 
         Schema::create('feeling_user', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
-            $table->string('f_name');
-            $table->foreign('f_name')->references('f_name')->on('feelings')->onDelete('restrict');
+            $table->bigIncrements('feeling_id');
+            $table->foreign('feeling_id')->references('id')->on('feelings')->onDelete('restrict');
             $table->timestamps();
         });
     }
