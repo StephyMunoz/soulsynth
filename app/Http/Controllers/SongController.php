@@ -39,7 +39,7 @@ class SongController extends Controller
         } else if ($feeling->id == 2) {  //ROMANTIC
 
             $seed = SpotifySeed::setGenres(['jazz', 'blues'])
-                ->setTargetDanceability(0, 0.1)
+                ->setTargetDanceability(0.2)
                 ->setSpeechiness(0.3, 0.7)
                 ->setTempo(0, 0.2);
 

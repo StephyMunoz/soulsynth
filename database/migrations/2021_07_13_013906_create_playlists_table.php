@@ -16,8 +16,9 @@ class CreatePlaylistsTable extends Migration
         Schema::create('playlists', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('f_name');
-            $table->foreign('f_name')->references('f_name')->on('feelings')->onDelete('restrict');
+            $table->string('name');
+            $table->unsignedBigInteger('feeling_id');
+            $table->foreign('feeling_id')->references('id')->on('feelings')->onDelete('restrict');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
         });
@@ -25,7 +26,7 @@ class CreatePlaylistsTable extends Migration
         Schema::create('playlist_song', function (Blueprint $table) {
             $table->unsignedBigInteger('song_id');
             $table->foreign('song_id')->references('id')->on('songs')->onDelete('restrict');
-            $table->unsignedBigInteger('playlists_id');
+            $table->bigIncrements('playlists_id');
             $table->foreign('playlists_id')->references('id')->on('playlists')->onDelete('restrict');
             $table->timestamps();
         });

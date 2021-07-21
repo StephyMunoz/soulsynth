@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         Schema::disableForeignKeyConstraints();
-        $this->call(FeelingsTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         Schema::enableForeignKeyConstraints();
     }
