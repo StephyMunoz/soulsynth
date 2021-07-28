@@ -7,15 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Song extends Model
 {
-    protected $hidden = [
-        's_id',
-        's_name',
-        's_artist',
-        's_producer',
+    protected $fillable = [
+        'name',
+        'href',
+        'artist',
+        'producer',
         'release_date',
-        's_genre',
-        's_album',
-        's_duration',
+        'genre',
+        'album',
+        'duration',
+        'image',
     ];
 
     public function feeling()

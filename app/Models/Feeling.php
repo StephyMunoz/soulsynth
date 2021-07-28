@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Feeling extends Model
 {
     protected $hidden = [
-        'f_name',
+        'name',
     ];
 
     public function playlists()

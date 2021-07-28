@@ -16,12 +16,12 @@ class FeelingsTableSeeder extends Seeder
     {
         //Feeling::truncate();
 
-        Feeling::create(['f_name' => 'happy']);
-        Feeling::create(['f_name' => 'romantic']);
-        Feeling::create(['f_name' => 'sad']);
-        Feeling::create(['f_name' => 'angry']);
-        Feeling::create(['f_name' => 'panicked']);
-        Feeling::create(['f_name' => 'curious']);
+        Feeling::create(['name' => 'happy']);
+        Feeling::create(['name' => 'romantic']);
+        Feeling::create(['name' => 'sad']);
+        Feeling::create(['name' => 'angry']);
+        Feeling::create(['name' => 'panicked']);
+        Feeling::create(['name' => 'curious']);
 
     }
 }
