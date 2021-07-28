@@ -16,12 +16,13 @@ class CreateSongsTable extends Migration
         Schema::create('songs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('artist');
-            $table->string('producer');
-            $table->date('release_date');
-            $table->string('genre');
-            $table->string('album');
-            $table->time('duration');
+            $table->string('href');
+            $table->string('artist')->nullable();
+            $table->string('producer')->nullable();
+            $table->date('release_date')->nullable();
+            $table->string('genre')->nullable();
+            $table->string('album')->nullable();
+            $table->time('duration')->nullable();
             $table->unsignedBigInteger('feeling_id');
             $table->foreign('feeling_id')->references('id')->on('feelings')->onDelete('restrict');
             $table->timestamps();

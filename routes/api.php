@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SongController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,15 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/spotify', [SongController::class, 'spotify']);
-Route::get('/spotify/{feeling}', [SongController::class, 'feeling']);
+Route::post('/register', [UserController::class, 'register']);
+Route::post('/login', [UserController::class, 'authenticate']);
+
+Route::group(['middleware' => ['jwt.verify']], function() {
+    Route::get('/user', [UserController::class, 'getAuthenticatedUser']);
+
+    //Song
+    Route::get('/spotify', [SongController::class, 'spotify']);
+    Route::get('/spotify/{feeling}', [SongController::class, 'feeling']);
+});
+
 //Route::get('/authorize', [SongController::class, 'authorize']);

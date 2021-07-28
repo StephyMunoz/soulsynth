@@ -8,20 +8,23 @@ use Illuminate\Database\Eloquent\Model;
 class Playlist extends Model
 {
     use HasFactory;
-    protected $hidden = ['idList'];
 
-    public function user()
+    protected $fillable = [
+        'name',
+    ];
+
+    public function users()
     {
         return $this->belongsTo('App\Models\User');
     }
 
-    public function feeling()
+    public function feelings()
     {
         return $this->belongsTo('App\Models\Feeling');
     }
 
     public function songs()
     {
-        return $this->belongsToMany('App\Models\Song');
+        return $this->belongsTo('App\Models\Song');
     }
 }

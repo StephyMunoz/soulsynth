@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feeling;
+use Database\Seeders\PlaylistsTableSeeder;
+use Database\Seeders\SongsTableSeeder;
 use http\Client\Response;
 use Spotify;
 use SpotifySeed;
@@ -28,14 +30,17 @@ class SongController extends Controller
 
     public function feeling(Feeling $feeling)
     {
+        //$genres = ['salsa', 'punk', 'pop', 'jazz', 'blues', ''];
         //HAPPY
         if ($feeling->id == 1) {
 
             $seed = SpotifySeed::setGenres(['salsa', 'tropical', 'pop'])
                 ->setLiveness(0.5, 1)
                 ->setDanceability(0.6, 1);
+            $response = response()->json(Spotify::recommendations($seed)->get());
 
-            return response()->json(Spotify::recommendations($seed)->get());
+            return $response;
+
         } else if ($feeling->id == 2) {  //ROMANTIC
 
             $seed = SpotifySeed::setGenres(['jazz', 'blues'])
