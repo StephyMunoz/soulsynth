@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -24,6 +25,13 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     //Song
     Route::get('/spotify', [SongController::class, 'spotify']);
     Route::get('/spotify/{feeling}', [SongController::class, 'feeling']);
+    Route::get('/songs', [SongController::class, 'index']);
+
+    //Playlist
+    Route::get('/playlists', [PlaylistController::class, 'index']);
+    Route::get('/users/{user}/playlists', [PlaylistController::class, 'show']);
+
+
 });
 
 //Route::get('/authorize', [SongController::class, 'authorize']);

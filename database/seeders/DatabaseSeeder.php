@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Http\Resources\Playlist;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 
@@ -17,7 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         Schema::disableForeignKeyConstraints();
-        //$this->call(FeelingsTableSeeder::class);
+        $this->call(FeelingsTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(SongsTableSeeder::class);
         $this->call(PlaylistsTableSeeder::class);

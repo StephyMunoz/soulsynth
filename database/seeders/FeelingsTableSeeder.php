@@ -14,7 +14,7 @@ class FeelingsTableSeeder extends Seeder
      */
     public function run()
     {
-        //Feeling::truncate();
+        Feeling::truncate();
 
         Feeling::create(['name' => 'happy']);
         Feeling::create(['name' => 'romantic']);

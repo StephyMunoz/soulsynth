@@ -14,6 +14,8 @@ class SongsTableSeeder extends Seeder
      */
     public function run()
     {
+        Song::truncate();
+
         Song::create([
             'name'=>'Various Artists',
             'href'=>'https://open.spotify.com/artist/0LyfQWJT6nXafLPZqxe9Of',
@@ -57,7 +59,7 @@ class SongsTableSeeder extends Seeder
             'artist'=> 'Marc Anthony',
             'producer'=>null,
             'release_date'=>null,
-            'genre'=>null,
+            'genre'=>'salsa',
             'album'=>null,
             'duration'=>null,
             'image'=>'https://i.scdn.co/image/ab67616d00001e02aa7da6f38ade089ddbc0940c',
@@ -69,10 +71,34 @@ class SongsTableSeeder extends Seeder
             'artist'=> 'Marc Anthony',
             'producer'=>null,
             'release_date'=>null,
-            'genre'=>null,
+            'genre'=>'salsa',
             'album'=>null,
             'duration'=>null,
             'image'=>'https://i.scdn.co/image/ab67616d00001e02aa7da6f38ade089ddbc0940c',
+            'feeling_id'=>1,
+        ]);
+        Song::create([
+            'name'=>'Amor y Control',
+            'href'=>'https://open.spotify.com/artist/5BwMgvRwlq61SmknvsVIQj',
+            'artist'=> 'Rubén Blades',
+            'producer'=>null,
+            'release_date'=>null,
+            'genre'=>'salsa',
+            'album'=>null,
+            'duration'=>null,
+            'image'=>null,
+            'feeling_id'=>1,
+        ]);
+        Song::create([
+            'name'=>'Amor y Control',
+            'href'=>'https://open.spotify.com/artist/5BwMgvRwlq61SmknvsVIQj',
+            'artist'=> 'ubén Blades',
+            'producer'=>null,
+            'release_date'=>null,
+            'genre'=>'salsa',
+            'album'=>null,
+            'duration'=>null,
+            'image'=>null,
             'feeling_id'=>1,
         ]);
 

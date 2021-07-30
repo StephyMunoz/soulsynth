@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feeling;
+use App\Models\Playlist;
+use App\Models\Song;
 use Database\Seeders\PlaylistsTableSeeder;
 use Database\Seeders\SongsTableSeeder;
 use http\Client\Response;
@@ -14,6 +16,12 @@ use Illuminate\Support\Facades\Facade;
 
 class SongController extends Controller
 {
+    public function index()
+    {
+        //$this->authorize('viewAny', Article::class);
+        //return response()->json(ArticleResource::collection(Article::all()), 200);
+        return Song::all();
+    }
     public function spotify(Feeling $feeling)
     {
         //(new Spotify)->searchTracks('Closed on Sunday')->get();

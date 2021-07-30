@@ -14,7 +14,7 @@ class CreatePlaylistsTable extends Migration
     public function up()
     {
         Schema::create('playlists', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->timestamps();
             $table->string('name');
             $table->unsignedBigInteger('feeling_id');
@@ -26,8 +26,8 @@ class CreatePlaylistsTable extends Migration
         Schema::create('playlist_song', function (Blueprint $table) {
             $table->unsignedBigInteger('song_id');
             $table->foreign('song_id')->references('id')->on('songs')->onDelete('restrict');
-            $table->bigIncrements('playlists_id');
-            $table->foreign('playlists_id')->references('id')->on('playlists')->onDelete('restrict');
+            $table->unsignedBigInteger('playlist_id');
+            $table->foreign('playlist_id')->references('id')->on('playlists')->onDelete('restrict');
             $table->timestamps();
         });
     }
